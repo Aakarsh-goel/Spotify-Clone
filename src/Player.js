@@ -1,9 +1,23 @@
 import React from 'react'
+import Body from './Body';
+import Footer from './Footer';
+import "./Player.css"
+import Sidebar from './Sidebar';
 
-function Player() {
+function Player({spotify}) {
+    console.log("props are",spotify)
     return (
-        <div>
-            Welcome to SPotify
+        <div className="player">
+            <div className="player-body">
+                
+                    <Sidebar/>
+          
+                
+                   <Body/>
+                
+            </div>
+           <Footer/>
+            
         </div>
     )
 }

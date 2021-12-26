@@ -10,36 +10,41 @@ import { DataLayerContext, useDataLayerValue } from './DataLayer';
 const spotify = new SpotifyWebApi();
 
 function App() {
-  const [token,setToken] = useState(null); 
-  const [user,dispatch] = useContext(DataLayerContext)
+ 
+  const [{user,token},dispatch] = useContext(DataLayerContext) // use this to get data layer at evry time
 
   useEffect(() => {
       const hash = getTokenFromURL();
-      window.location.hash = "";
       const _token = hash.access_token;
 
       if(_token){
-          setToken(_token);
+         
+          dispatch({
+            type:"SET_TOKEN",
+            token:_token
+          })
            // doubt why token didn't work here, I had to wrte _token
           
           spotify.setAccessToken(_token);
           spotify.getMe().then((user) => {
-            console.log('test spotify api', user);
+            
             dispatch({
               type:"SET_USER",
-              user : user                           
+             // user : user 
+             user                          
             })
           })
 
       }
-      console.log("dispatch test ----->",user);
+      console.log("dispatch test for user ----->",user);
+      console.log("dispatch test for token ----->",token);
   }, [])
 
   return (
     <div className="App">
       
       {
-        token ? <Player/>:<Login/>
+        token ? <Player spotify={spotify}/>:<Login/>
         
       }
      
