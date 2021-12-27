@@ -12,6 +12,16 @@
 
 .footer-left{
     flex: 0.3;
+    display: flex;
+    align-items: center;
+    color: white;
+    max-width: 300px;
+}
+.photo-album{
+    height: 60px;
+    width: 60px;
+    object-fit: contain;
+    margin-right: 20px;
 }
 
 .footer-center{
@@ -26,4 +36,31 @@
 
 .footer-right{
     flex: 0.3;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+
+.footer-green{
+    color: #1ed15e;
+}
+.footer-green:hover,
+.footer-icon:hover{
+    cursor: pointer;
+    transition: transform 200ms ease-in-out;
+    transform: scale(1.2);
+}
+
+.footer-song-info > p{
+    font-size: 12px;
+}
+
+.footer-song-info > h4{
+   margin-bottom: 6px;
+}
+
+.footer-right * .MuiSlider-root{
+    color: green;
 }
