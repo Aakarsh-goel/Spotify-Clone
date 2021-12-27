@@ -1,7 +1,9 @@
+import { FavoriteRounded, MoreHorizRounded, PlayCircleFilled } from "@material-ui/icons";
 import React, { useContext } from "react";
 import "./Body.css";
 import { DataLayerContext } from "./DataLayer";
 import Header from "./Header";
+import Songrow from "./Songrow";
 
 
 function Body({ spotify }) {
@@ -21,7 +23,19 @@ function Body({ spotify }) {
             <p>{discoverWeekly?.discoverWeekly?.description}</p>
         </div>
       </div>
-      
+
+      <div className="body-songs">
+          <div className="body-icons">
+              <PlayCircleFilled className="body-shuffle"/>
+              <FavoriteRounded fontSize="large"/>
+
+              <MoreHorizRounded/>
+          </div>
+          {discoverWeekly?.discoverWeekly?.tracks.items.map(item=>(
+              <Songrow track = {item.track}/>
+          ))}
+      </div>
+
 
 
     </div>

@@ -2,8 +2,9 @@
     position: fixed;
     display: flex;
     justify-content: space-between;
-    color: blanchedalmond;
-    bottom: 0;
+    color: gray;
+    bottom: 0; 
+    /* This keeps the footer intact */
     height: 65px;
     width: 97%;
     background-color: #282828;
