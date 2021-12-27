@@ -1,17 +1,17 @@
 import './App.css';
 import Login from './Login';
-import { useState,useEffect,useContext } from 'react';
+import {useEffect,useContext } from 'react';
 import { getTokenFromURL } from './spotify';
 import SpotifyWebApi from 'spotify-web-api-js';
 import Player from './Player';
-import { DataLayerContext, useDataLayerValue, DataLayer } from './DataLayer';
+import { DataLayerContext} from './DataLayer';
 
 
 const spotify = new SpotifyWebApi();
 
 function App() {
  
-  const [{user,token},dispatch] = useContext(DataLayerContext) // use this to get data layer at evry time
+  const [{user,token,discoverWeekly},dispatch] = useContext(DataLayerContext) // use this to get data layer at evry time
 
   useEffect(() => {
       const hash = getTokenFromURL();
@@ -39,6 +39,12 @@ function App() {
                 type:"SET_PLAYLISTS",
                 playlists                        
               })
+            })
+          })
+          spotify.getPlaylist('37i9dQZEVXcRnulFHuO13B').then(response=>{
+            dispatch({
+              type:"SET_DISCOVER_WEEKLY",
+             discoverWeekly: response
             })
           })
 
