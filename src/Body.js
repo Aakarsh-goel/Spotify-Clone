@@ -21,6 +21,9 @@ function Body({ spotify }) {
             <p>{discoverWeekly?.discoverWeekly?.description}</p>
         </div>
       </div>
+      
+
+
     </div>
   );
 }
