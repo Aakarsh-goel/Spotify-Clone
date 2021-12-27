@@ -4,7 +4,7 @@ import { useState,useEffect,useContext } from 'react';
 import { getTokenFromURL } from './spotify';
 import SpotifyWebApi from 'spotify-web-api-js';
 import Player from './Player';
-import { DataLayerContext, useDataLayerValue } from './DataLayer';
+import { DataLayerContext, useDataLayerValue, DataLayer } from './DataLayer';
 
 
 const spotify = new SpotifyWebApi();
@@ -32,6 +32,13 @@ function App() {
               type:"SET_USER",
              // user : user 
              user                          
+            })
+
+            spotify.getUserPlaylists().then((playlists)=>{
+              dispatch({
+                type:"SET_PLAYLISTS",
+                playlists                        
+              })
             })
           })
 
