@@ -33,6 +33,10 @@ function App() {
              // user : user 
              user                          
             })
+            dispatch({
+              type: "SET_SPOTIFY",
+              spotify: spotify,
+            });
 
             spotify.getUserPlaylists().then((playlists)=>{
               dispatch({
@@ -41,12 +45,14 @@ function App() {
               })
             })
           })
-          spotify.getPlaylist('37i9dQZEVXcRnulFHuO13B').then(response=>{
+          spotify.getPlaylist('6RTbuRKCEZPsqrsAki6yg4').then(response=>{
             dispatch({
               type:"SET_DISCOVER_WEEKLY",
              discoverWeekly: response
             })
           })
+         
+          
 
       }
       console.log("dispatch test for user ----->",user);
