@@ -6,7 +6,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import LibraryMusicIcon from "@material-ui/icons/LibraryMusic";
 import { DataLayerContext } from "./DataLayer";
 
-function Sidebar() {
+function Sidebar({spotify}) {
   const [playlists, dispatch] = React.useContext(DataLayerContext);
 
   console.log("playlists are", playlists);
@@ -24,9 +24,11 @@ function Sidebar() {
       <br />
       <strong className="sidebar-title"> PLAYLISTS </strong>
       <hr />
-      {playlists?.playlists.items?.map((playlist) => (
-        <SidebarOption title={playlist.name} />
+      
+      {playlists?.playlists?.items?.map((playlist) => (
+        <SidebarOption title={playlist.name} id={playlist.id} spotify={spotify}/>   
       ))}
+       
     </div>
   );
 }

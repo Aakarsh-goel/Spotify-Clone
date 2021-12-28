@@ -5,7 +5,8 @@ export const initialState = {
   item: null,
   token: null,
   discoverWeekly:null,
-  spotify:null
+  spotify:null,
+  playlistId:null
 };
 
 const reducer = (state, action) => {
@@ -32,6 +33,14 @@ const reducer = (state, action) => {
         ...state,
         playlists: action.playlists,
       };
+    
+    case "SET_PLAYLIST_ID":
+        console.log("playlist id is set")
+        return {
+            ...state,
+            playlistId: action.playlistId,
+          };
+
 
     case "SET_DISCOVER_WEEKLY":
         console.log("discover weekly is set");

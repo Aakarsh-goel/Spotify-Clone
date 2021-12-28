@@ -55,6 +55,7 @@ function Footer({spotify}) {
             type: "SET_PLAYING",
             playing: true,
           });
+         
         });
       };
     

@@ -13,7 +13,7 @@ function Body({ spotify }) {
         console.log("in play playlist",id)
         spotify
           .play({
-            context_uri: `spotify:playlist:6RTbuRKCEZPsqrsAki6yg4`,
+            context_uri: 'spotify:playlist:' + discoverWeekly.discoverWeekly.id,
           })
           .then((res) => {
               console.log("response whenplay",res)
